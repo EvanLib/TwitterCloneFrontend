@@ -1,4 +1,9 @@
-<p>
-  stuff works!
-  {{this.localStorageKey}}
-</p>
+<form name="tweetform" (ngSubmit)="postTweet($event)">
+  <div class="form-group">
+      <label for="tweetarea">Whats on your mind?</label>
+      <textarea class="form-control" id="tweetarea" name="tweetarea" maxlength="140" [(ngModel)]="tweetString"></textarea>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-primary">Post Tweet</button>
+  </div>
+</form>

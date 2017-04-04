@@ -10,13 +10,15 @@ import { StuffComponent } from './stuff/stuff.component';
 import {RoutingModule} from './app-routing.module';
 import { SinginComponent } from './singin/singin.component'
 import { AuthService } from './auth.service';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StuffComponent,
-    SinginComponent
+    SinginComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { StuffComponent } from './stuff/stuff.component';
 import { SinginComponent } from './singin/singin.component'
 import { AuthService } from './auth.service';
+import { BaseComponent } from './base/base.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -12,7 +13,9 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {path: 'stuff', component: StuffComponent},
-      {path: 'signin', component: SinginComponent}
+      {path: 'signin', component: SinginComponent},
+      {path: 'base', component: BaseComponent}
+
     ]
   }
 ];
