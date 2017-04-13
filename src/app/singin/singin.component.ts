@@ -20,18 +20,17 @@ export class SinginComponent implements OnInit {
   }
   logout(event){
     this.AuthService.logout()
-    .subscribe(result => {
-      if(result) {
-         this.router.navigate(['home/base'])
-       }
-   })
+    .subscribe(
+      result => console.log(result),
+        () => this.router.navigate(['home/base']),
+
+      );
   }
   login(event) {
     event.preventDefault()
     this.loading = true;
     this.AuthService.login(this.model.username, this.model.password)
     .subscribe(result => {
-        console.log(result)
         if (result === true) {
           this.loading = false;
           this.error = ''
