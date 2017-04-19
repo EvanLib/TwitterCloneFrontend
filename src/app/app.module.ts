@@ -9,10 +9,18 @@ import { HomeComponent } from './home/home.component';
 import { StuffComponent } from './stuff/stuff.component';
 import {RoutingModule} from './app-routing.module';
 import { SinginComponent } from './singin/singin.component'
-import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth.service';
-
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BaseComponent } from './base/base.component';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'id_token',
+		tokenGetter: (() => localStorage.getItem('id_token')),
+		globalHeaders: [{'Content-Type':'application/json'}],
+	}), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -28,11 +36,15 @@ import { BaseComponent } from './base/base.component';
     RoutingModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    HttpModule,
-    AuthModule
+    HttpModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
   ],
   bootstrap: [AppComponent]
 })
