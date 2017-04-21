@@ -5,7 +5,7 @@ import { TweetService } from '../tweet.service';
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.css']
+  styleUrls: ['./base.component.scss']
 })
 export class BaseComponent implements OnInit {
 
@@ -18,6 +18,7 @@ export class BaseComponent implements OnInit {
       tweets => this.tweets = tweets,
       error => console.log(error)
     );
+
   }
 
 }

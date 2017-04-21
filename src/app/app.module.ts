@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { StuffComponent } from './stuff/stuff.component';
 import {RoutingModule} from './app-routing.module';
-import { SinginComponent } from './singin/singin.component'
+import { SinginComponent } from './singin/singin.component';
 import { AuthService } from './auth.service';
 import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';

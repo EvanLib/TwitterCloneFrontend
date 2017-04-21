@@ -21,18 +21,18 @@ export class AuthService {
 
   logout(): Observable<boolean> {
     //Tell API to remove User Token
-    this.authHttp.delete('http://localhost:3000/api/auth/logout')
-    .subscribe((res:Response) => {
+    return this.authHttp.delete('http://localhost:3000/api/auth/logout')
+    .map((res:Response) => {
       console.log("Stuff")
       if (res.ok) { //Returns a status of okay http 20*
         //Delete local storage token
         localStorage.removeItem('id_token')
-        return Observable.of(true);
+        return true
       }
-      return Observable.of(false);
+      return false;
     });
 
-    return Observable.of(false); //Something really went wrong...
+
 }
 
   login(username: string, password: string): Observable<boolean> {
