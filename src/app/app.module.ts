@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BaseComponent } from './base/base.component';
+import { TweetService } from './tweet.service';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -44,7 +45,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }
+    },
+    TweetService
   ],
   bootstrap: [AppComponent]
 })
