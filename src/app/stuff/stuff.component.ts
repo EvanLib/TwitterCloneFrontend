@@ -10,7 +10,7 @@ import { BaseComponent } from '../base/base.component';
 export class StuffComponent implements OnInit {
   tweet: Tweet;
   tweetString: string = '';
-  localStorageKey = localStorage.getItem('currentUser')
+  profile = localStorage.getItem('profile')
   constructor() { }
 
   ngOnInit() {

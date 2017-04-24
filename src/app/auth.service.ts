@@ -9,7 +9,7 @@ import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
 
 export class AuthService {
   public token: string;
-
+  public profile: string;
   constructor(private authHttp: AuthHttp, private http: Http) {
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -31,37 +31,37 @@ export class AuthService {
       }
       return false;
     });
-
-
-}
+  }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post('http://localhost:3000/api/auth/login', JSON.stringify({ email: username, password: password }))
-            .map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
-                if (response.status === 401) {
-                  console.log("Called.");
-                  return false; //Failed login
-                }
-                if (token) {
-                    // set token property
-                    console.log(token)
-                    this.token = token;
+      return this.http.post('http://localhost:3000/api/auth/login', JSON.stringify({ email: username, password: password }))
+              .map((response: Response) => {
+                  // login successful if there's a jwt token in the response
+                  let token = response.json() && response.json().token;
+                  let username = response.json() && response.json().username;
+                  if (response.status === 401) {
+                    return false; //Failed login
+                  }
+                  if (token) {
+                      // set token property
+                      console.log(token)
+                      this.token = token;
+                      this.profile = username;
 
-                    // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('id_token', this.token)
-                    console.log(localStorage.getItem('id_token'))
-                    // return true to indicate successful login
-                    return true;
-                } else {
-                  console.log("Called.");
+                      // store username and jwt token in local storage to keep user logged in between page refreshes
+                      localStorage.setItem('id_token', this.token)
+                      localStorage.setItem('profile', this.profile)
 
-                    // return false to indicate failed login
-                    return false;
-                }
-            });
+                      // return true to indicate successful login
+                      return true;
+                  } else {
+                    console.log("Called.");
 
-    }
+                      // return false to indicate failed login
+                      return false;
+                  }
+              });
+
+  }
 
 }

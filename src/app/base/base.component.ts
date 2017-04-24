@@ -19,6 +19,7 @@ export class BaseComponent implements OnInit {
       error => console.log(error)
     );
 
+    
   }
 
 }

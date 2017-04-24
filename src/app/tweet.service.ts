@@ -11,7 +11,10 @@ export class TweetService {
 
   getTweets(): Observable<Tweet[]>{
     return this.authHttp.get("http://localhost:3000/api/tweets")
-    .map(response => <Tweet[]>response.json());
+    .map((response) => {
+      console.log(response.json())
+      return <Tweet[]>response.json()
+    });
   }
   getTweet(): Tweet[]{
     return this.tweets;

@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['/home']" (click)="navbarCollapsed = !navbarCollapsed">Home <span class="sr-only">(current)</span></a>
         </li>
 
         <app-singin></app-singin>
@@ -23,21 +23,5 @@
       This is a Twitter clone to learn angular 2 and Golang <br>
       Things might not work.
   </div>
-  <div class="row">
-    <div class="col-xs-4 col-lg-4">
-      <div class="profile_card">
-        <h5 class="">Username</h5>
-        <p class="lead">Some random stuff about a bio and things :D</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-8">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
+  <router-outlet></router-outlet>
 </div>

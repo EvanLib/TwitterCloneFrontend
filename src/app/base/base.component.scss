@@ -4,7 +4,27 @@
     background-color: #fff;
     background-clip: inherit;
     border-bottom: 1px solid #e6ecf0;
-    line-height: inherit;
-    padding: 15px;
-    
+    border-left: 1px solid #e6ecf0;
+    border-right: 1px solid #e6ecf0;
+    padding: 10px;
+    display: flex;
+
+}
+
+.post .actions {
+  float: right;
+}
+
+.post>aside>img {
+    width: 64px;
+    border-radius: 2px
+}
+
+.post>.post-content {
+  flex-grow: 1;
+  padding: 0 8px;
+}
+
+.post>p{
+  font-size: 15px
 }

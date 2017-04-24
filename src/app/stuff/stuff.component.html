@@ -1,11 +1,27 @@
-<div class="center">
-  <form name="tweetform" (ngSubmit)="postTweet($event)">
-    <div class="form-group">
-        <label for="tweetarea">Whats on your mind?</label>
-        <textarea class="form-control" id="tweetarea" name="tweetarea" maxlength="140" [(ngModel)]="tweetString"></textarea>
-      <br>
-        <button class="btn btn-primary">Post Tweet</button>
+<div class="row">
+  <div class="hidden-md-down col-lg-4">
+    <div class="profile-card">
+      <h5 class="">{{profile}}</h5>
+      <p class="lead">Some random stuff about a bio and things :D</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
+      </p>
     </div>
-  </form>
+  </div>
+  <div class="center col-lg-8 col-md-12">
+    <div class="tweet-form">
+      <form name="tweetform" (ngSubmit)="postTweet($event)">
+        <div class="form-group">
+            <label for="tweetarea">Whats on your mind?</label>
+            <textarea class="form-control" id="tweetarea" name="tweetarea" maxlength="140" [(ngModel)]="tweetString"></textarea>
+          <br>
+            <button class="btn btn-primary">Post Tweet</button>
+        </div>
+      </form>
+    </div>
+    <app-base></app-base>
+  </div>
+
 </div>
-<app-base></app-base>
