@@ -21,7 +21,13 @@ export class TweetService {
   }
 
   //CRUD functions
-  postTweet(tweet: string) {
-    return true
+  postTweet(tweet: string): Observable<boolean> {
+    return this.authHttp.post('http://localhost:3000/api/tweets', JSON.stringify({tweet: tweet}))
+    .map((response: Response) => {
+      if(response.ok){
+        //TODO Figure out how to add new tweet to array.
+      }
+      return response.ok
+    })
   }
 }

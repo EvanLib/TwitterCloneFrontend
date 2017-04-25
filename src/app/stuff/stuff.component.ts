@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Tweet } from '../models/tweet';
 import { BaseComponent } from '../base/base.component';
+import { TweetFormComponent } from '../tweet-form/tweet-form.component';
 
 @Component({
   selector: 'app-stuff',
@@ -8,15 +9,12 @@ import { BaseComponent } from '../base/base.component';
   styleUrls: ['./stuff.component.scss']
 })
 export class StuffComponent implements OnInit {
-  tweet: Tweet;
-  tweetString: string = '';
+
   profile = localStorage.getItem('profile')
   constructor() { }
 
   ngOnInit() {
   }
 
-  postTweet(event) {
-    console.log(this.tweetString)
-  }
+
 }

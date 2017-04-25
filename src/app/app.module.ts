@@ -14,6 +14,9 @@ import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BaseComponent } from './base/base.component';
 import { TweetService } from './tweet.service';
+import { AuthGuard } from './guards/auth-guard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TweetFormComponent } from './tweet-form/tweet-form.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -29,7 +32,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HomeComponent,
     StuffComponent,
     SinginComponent,
-    BaseComponent
+    BaseComponent,
+    PageNotFoundComponent,
+    TweetFormComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   ],
   providers: [
     AuthService,
+    AuthGuard,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,

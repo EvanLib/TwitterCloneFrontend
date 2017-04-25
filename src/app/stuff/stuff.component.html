@@ -11,16 +11,7 @@
     </div>
   </div>
   <div class="center col-lg-8 col-md-12">
-    <div class="tweet-form">
-      <form name="tweetform" (ngSubmit)="postTweet($event)">
-        <div class="form-group">
-            <label for="tweetarea">Whats on your mind?</label>
-            <textarea class="form-control" id="tweetarea" name="tweetarea" maxlength="140" [(ngModel)]="tweetString"></textarea>
-          <br>
-            <button class="btn btn-primary">Post Tweet</button>
-        </div>
-      </form>
-    </div>
+    <tweet-form></tweet-form>
     <app-base></app-base>
   </div>
 

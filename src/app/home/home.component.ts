@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
 export class HomeComponent implements OnInit {
 
   constructor(AuthService: AuthService) { }
+  navbarCollapsed = true; //Set opening default
 
   ngOnInit() {
   }

@@ -5,6 +5,10 @@ import { StuffComponent } from './stuff/stuff.component';
 import { SinginComponent } from './singin/singin.component'
 import { AuthService } from './auth.service';
 import { BaseComponent } from './base/base.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { AuthGuard } from './guards/auth-guard.service';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -12,12 +16,17 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
-      {path: 'stuff', component: StuffComponent},
-      {path: 'signin', component: SinginComponent},
+      {
+        path: 'stuff',
+        component: StuffComponent,
+        canActivate: [AuthGuard]
+      },
       {path: 'base', component: BaseComponent}
 
     ]
-  }
+  },
+  { path: '**', component: PageNotFoundComponent}
+
 ];
 
 @NgModule({

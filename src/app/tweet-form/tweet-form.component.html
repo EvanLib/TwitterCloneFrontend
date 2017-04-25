@@ -1,0 +1,14 @@
+<div class="tweet-form">
+  <form name="tweetform" (ngSubmit)="postTweet($event)">
+    <div class="form-group">
+        <label for="tweetarea">Whats on your mind?</label>
+        <textarea id="tweetForm" #tweetForm class="form-control" name="tweetarea" maxlength="140" [(ngModel)]="model.tweetString"></textarea>
+        <div class="text-right tweet-actions">
+          <button [disabled]="postingTweet" class="btn btn-primary" (click)="postTweet($event)">Tweet</button>
+          <small><code>{{140-tweetForm.value.length}}</code></small>
+        </div>
+    </div>
+  </form>
+
+
+</div>
