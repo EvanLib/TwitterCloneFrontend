@@ -9,17 +9,17 @@ import { TweetService } from '../tweet.service';
 })
 export class BaseComponent implements OnInit {
 
-  tweets: Tweet[];
+  tweets = [];
   constructor(private tweetService: TweetService) { }
 
   ngOnInit() {
     this.tweetService.getTweets()
     .subscribe(
-      tweets => this.tweets = tweets,
+      (tweets) => {this.tweets = tweets.reverse()},
       error => console.log(error)
     );
 
-    
+
   }
 
 }

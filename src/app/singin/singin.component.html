@@ -31,6 +31,6 @@
 
 <div *ngIf="!AuthService.LoggedIn()">
   <li class="nav-item">
-    <a class="nav-link" (click)="showLogin($event, content)" href=""> Login</a>
+    <a class="nav-link" (click)="showLogin($event, content); navbarCollapsed=!navbarCollapsed" href=""> Login</a>
   </li>
 </div>

@@ -3,12 +3,14 @@
   <div class="post">
 
       <aside>
-        <img src="https://robohash.org/{{tweet.Profile.username}}.png" alt="" />
+        <img src="https://robohash.org/{{tweet.profile.username}}.png" alt="" />
       </aside>
     <div class="post-content">
-      <h6 >{{tweet.Profile.username}}</h6>
+
+      <h6 >{{tweet.profile.username}} <small>{{tweet.createdAt.toDateString()}}</small></h6>
+
       <p>{{tweet.tweet}}</p>
-      <div class="actions">
+      <div class="text-right">
         <span class="fa fa-heart"></span>
         <span class="fa fa-repeat"></span>
       </div>
